@@ -1,6 +1,17 @@
 // Enhanced Indian Restaurant Website - JavaScript
 // All functionality in pure frontend with localStorage persistence
 
+// Loading Screen Handler
+function hideLoadingScreen() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500); // Wait for fade-out animation
+    }
+}
+
 // Restaurant Menu Data
 const menuItems = [
     {
@@ -185,6 +196,9 @@ function renderMenu() {
 
 // Initialize everything when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Hide loading screen
+    setTimeout(hideLoadingScreen, 1500); // Show loading screen for 1.5 seconds
+    
     // Initialize menu
     renderMenu();
     
